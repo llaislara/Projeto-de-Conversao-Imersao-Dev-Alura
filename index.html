@@ -1,0 +1,122 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Conversor de Moedas</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1 class="page-title">
+    Conversor de moedas
+  </h1>
+  <img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/logo-imersao-aluraflix.svg" class="page-logo" alt="">
+</div>
+
+<a href="https://alura.com.br/" target="_blank">
+  <img src="https://www.alura.com.br/assets/img/home/alura-logo.svg" alt="" class="alura-logo">
+  <img src="https://caelum-online-public.s3.amazonaws.com/assets-imersaodev/Convers%C3%A3o+1.png" id="userImage">
+</a>
+
+<div id="form-container">
+  <label for="name">Insira seu nome:</label>
+  <input type="text" id="name" placeholder="Nome">
+  <span id="reset-icon">&#8634;</span>
+</div>
+
+<div class="progdisp">
+  <a>Programas disponíveis:</a>
+</div>
+
+<div id="converter-buttons">
+  <button onclick="showCurrencyConverter()">Conversor de Moedas</button>
+  <button onclick="showDistanceConverter()">Conversor de Medidas</button>
+  <button onclick="showTemperatureConverter()">Conversor de Temperatura</button>
+</div>
+
+
+<!-- *************************************************************
+ * ********************* MOEDAS  ************************
+ * ********************************************************** --> 
+<div id="converter-program" style="display: none;">
+  <label for="fromCurrency">Moeda de origem:</label>
+  <select id="fromCurrency" onchange="updateInputPlaceholder()">
+    <option value="EUR">EUR</option>
+  </select>
+
+  <label for="toCurrency">Moeda de destino:</label>
+  <select id="toCurrency" onchange="updateInputPlaceholder()"> 
+    <option value="BRL">BRL</option>
+
+  </select>
+
+  <label id = "val" for="amount">Valor:</label>
+  <input type="number" id="amount" placeholder="" step="0.01">
+
+  <div id="result-box" style="display: none;">
+    <p id="result-text" style="color:white"></p>
+  </div>
+
+  <button id="convert-button" onclick="convertCurrency()">Converter</button>
+  <button id="back-button" onclick="voltar()">Voltar</button>
+
+</div>
+
+<div id="converter-program" style="display: none;">
+  <button id="back-button" onclick="voltar()">Voltar</button>
+</div>
+
+<!-- *************************************************************
+ * ********************* DISTANCIA  ************************
+ * ********************************************************** --> 
+<div id="distance-program" style="display: none; ">
+  <label id = "TitleDist" for="distanceInput1">Distância em Anos-luz:</label>
+  <input type="number" id="distanceInput" placeholder="Insira a distância em anos-luz">
+
+  <label id = "TitleSel" for="unitSelector">Converter para:</label>
+  <select id="unitSelector">
+    <option value="km">Quilômetros</option>
+    <option value="m">Metros</option>
+    <option value="cm">Centímetros</option>
+  </select>
+  <button id="distance-convert-button" onclick="convertDistance()">Calcular</button>
+  <label id= "convertedDis" for="convertedDistance">Distância Convertida:</label>
+  <div id="convertedDistance"> <strong></strong></div>
+  <button id="distance-back-button" onclick="voltarDist()">Voltar</button>
+</div>
+
+<!-- *************************************************************
+ * ********************* TEMPERATURA  ************************
+ * ********************************************************** --> 
+<div id="temperature-program" style="display: none;">
+  <label for="temperatureInput">Temperatura:</label>
+  <input type="number" id="temperatureInput" placeholder="Insira a temperatura">
+
+  <label id="texttemp" for="fromUnitSelector">De:</label>
+  <select id="fromUnitSelector">
+    <option value="celsius">Celsius</option>
+    <option value="fahrenheit">Fahrenheit</option>
+    <option value="kelvin">Kelvin</option>
+  </select>
+
+  <label id="tounitselectortext" for="toUnitSelector">Para:</label>
+  <select id="toUnitSelector">
+    <option value="celsius">Celsius</option>
+    <option value="fahrenheit">Fahrenheit</option>
+    <option value="kelvin">Kelvin</option>
+  </select>
+
+  <button id="temperature-convert-button" onclick="convertTemperature()">Converter</button>
+  <label id="tempresult" for="convertedTemperature">Resultado:</label>
+  <div id="convertedTemperature"></div>
+
+  <button id="temperature-back-button" onclick="encerrarPrograma()">Voltar</button>
+</div>
+
+<script src="./script.js"></script>
+
+</body>
+</html>
